@@ -1,32 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
+/* @theme {
   --color-accent-neutral: #525252;
   --color-accent-light: #737373;
-}
+} */
 
 /* Theme Presets */
 :root {
   --accent-color: #e0e0e0;
 }
-
-.theme-default {
-  --accent-color: #e0e0e0;
-}
-
-.theme-emerald {
-  --accent-color: #ffd500;
-}
-
-.theme-fuchsia {
-  --accent-color: #ffa3c8;
-}
-
-.theme-terminal {
-  --accent-color: #2fd943;
-}
-
+ 
 /* Custom accent utilities */
 .text-accent {
   color: var(--accent-color);
