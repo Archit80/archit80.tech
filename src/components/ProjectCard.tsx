@@ -35,7 +35,7 @@
           <h3 className="text-base font-bold mb-1 flex items-center text-neutral-100">
             {title} <span className="ml-2">{emoji}</span>
           </h3>
-          <p className="text-xs text-neutral-300 mb-3">{description}</p>
+          <p className="text-sm leading-snug text-justify py-1 text-neutral-300 mb-3">{description}</p>
           <div className="flex flex-wrap gap-1 mb-3">
             {stack.map((tech) => (
               <span

@@ -261,7 +261,7 @@ export default function Home() {
                 alt="Archit Taneja"
                 width={110}
                 height={110}
-                className="rounded-full mx-auto mb-3 border border-neutral-700"
+                className="rounded-full mx-auto mb-3 border border-neutral-800"
                 priority
               />
             </motion.div>
@@ -337,12 +337,60 @@ export default function Home() {
           >
             <h2 className="text-lg font-bold text-accent mb-2">About Me</h2>
             <p className="text-sm text-neutral-300 leading-relaxed">
-              I&apos;m Archit, a 19-year-old engineering student from GGSIPU,
+              I&apos;m Archit, a 20-year-old engineering student from GGSIPU,
               Delhi. I&apos;m passionate about combining clean design with
-              functional code. I&apos;ve built everything from meme generators
-              to link-sharing platforms. I specialize in UI/UX, full-stack
-              workflows, and turning chaos into clean builds.
+              functional code. I work across Full-Stack Development and UX UI
+              design — crafting responsive apps, thoughtful interfaces, and
+              smooth user flows. Currently exploring modern web tech, design
+              systems, and everything in between.
             </p>
+            <div className="mt-6 pb-8 border-neutral-800 border-b">
+              <h3 className="text-base font-bold text-accent mb-2">
+                Education
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-0.5">
+                  <div>
+                    <span className="font-bold text-neutral-100 text-sm">
+                      University School of Information, Communication and
+                      Technology
+                    </span>
+                    <div className="italic text-xs text-neutral-300">
+                      Bachelor of Technology - Information Technology
+                    </div>
+                    <div className="text-xs text-neutral-400">
+                      Overall CGPA: 8.81
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end sm:items-end text-right min-w-[110px]">
+                    <span className="text-xs text-neutral-300">
+                      Delhi, India
+                    </span>
+                    <span className="italic text-xs text-neutral-400">
+                      September 2023 - August 2027
+                    </span>
+                  </div>
+                </li>
+                <li className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-0.5">
+                  <div>
+                    <span className="font-bold text-neutral-100 text-sm">
+                      Mahavir Senior Model School
+                    </span>
+                    <div className="italic text-xs text-neutral-300">
+                      Central Board of Secondary Education (91.2%)
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end sm:items-end text-right min-w-[110px]">
+                    <span className="text-xs text-neutral-300">
+                      Delhi, India
+                    </span>
+                    <span className="italic text-xs text-neutral-400">
+                      April 2021 - March 2023
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </motion.section>
 
           {/* --- SKILLS --- */}
@@ -354,7 +402,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-lg font-bold text-accent mb-3">Skills</h2>
-            <div className="space-y-3">
+            <div className="space-y-3 border-b border-neutral-800 pb-8">
               <div>
                 <h3 className="text-sm font-semibold mb-2 text-neutral-200">
                   Programming Languages
@@ -469,12 +517,13 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="border-b border-neutral-800 pb-8"
           >
             <h2 className="text-lg font-bold text-accent mb-3">Projects</h2>
 
             {/* Development Projects */}
             <div className="mb-6">
-              <h3 className="text-sm font-semibold mb-3 text-neutral-200">
+              <h3 className="text-base font-semibold mb-3 text-neutral-200">
                 Development
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -503,7 +552,7 @@ export default function Home() {
                   <ProjectCard
                     title="Meme Aunty"
                     emoji="👩🏼‍🦰"
-                    description="Meme Aunty is an AI-powered meme generator with desi Gen Z vibes. Users upload photos and get savage, wholesome, or spicy captions using Gemini API. Rate-limited by browser fingerprinting, and built with React, FastAPI, Pillow, and Cloudinary for seamless image processing and hosting."
+                    description="Meme Aunty is an AI-powered meme generator with desi Gen Z vibes. Users upload photos and get savage, wholesome, or spicy captions using Gemini API. Rate-limited by browser fingerprinting, and built with React, FastAPI, Pillow, and Cloudinary."
                     stack={["React", "FastAPI", "Gemini API"]}
                     liveUrl="#"
                     githubUrl="#"
@@ -515,7 +564,7 @@ export default function Home() {
 
             {/* Design Projects */}
             <div>
-              <h3 className="text-sm font-semibold mb-3 text-neutral-200">
+              <h3 className="text-base font-semibold mb-3 text-neutral-200">
                 Design
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -539,7 +588,7 @@ export default function Home() {
                       <h3 className="text-base font-bold mb-1 flex items-center text-neutral-100">
                         HashTech 2025
                       </h3>
-                      <p className="text-xs text-neutral-300 mb-3">
+                      <p className="text-sm leading-snug text-justify text-neutral-300 mb-3">
                         Led the creative redesign of HASHTECH, crafting a
                         high-impact visual experience rooted in cyberpunk
                         design. Focused on minimalist UI, smooth transitions,
@@ -590,7 +639,7 @@ export default function Home() {
                       <h3 className="text-base font-bold mb-1 flex items-center text-neutral-100">
                         Alumnet
                       </h3>
-                      <p className="text-xs text-neutral-300 mb-3">
+                      <p className="text-sm leading-snug text-justify text-neutral-300 mb-3">
                         Conceptualised and designed a user-friendly alumni
                         platform UX UI With features like Razorpay-powered
                         donations, smart search for networking, mentorship
