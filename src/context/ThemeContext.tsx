@@ -19,13 +19,13 @@ export const themes: Theme[] = [
   {
     name: 'emerald',
     displayName: 'CyberPunk',
-    accent: '#ffaa00',
+    accent: '#ffd500',
     description: 'Futuristic world'
   },
   {
     name: 'fuchsia',
     displayName: 'Berry Blast',
-    accent: '#ff9fc9',
+    accent: '#ffa3c8',
     description: 'Bold & creative'
   },
   {

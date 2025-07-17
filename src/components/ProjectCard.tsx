@@ -22,10 +22,10 @@
   }: ProjectCardProps) => {
     return (
       <div className="bg-neutral-800 rounded-2xl p-4 hover:shadow-md transition-shadow">
-        <div className="w-full h-32 bg-neutral-700 rounded-xl mb-3 flex items-center justify-center">
+        <div className="w-full h-40 bg-neutral-700 rounded-xl mb-3 flex items-center justify-center">
           <Image
-            width={60}
-            height={60}
+            width={600}
+            height={200}
             src={typeof image === "string" ? image : image.src}
             alt={`${title} preview`}
             className="w-full h-full object-cover rounded-xl"

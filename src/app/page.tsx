@@ -6,6 +6,7 @@ import {
   FileText,
   Command,
   ExternalLink,
+  Instagram,
 } from "lucide-react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ThemeDropdown } from "@/components/ThemeDropdown";
@@ -163,7 +164,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "home"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 Home
@@ -173,7 +174,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "about"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 About
@@ -183,7 +184,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "skills"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 Skills
@@ -193,7 +194,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "projects"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 Projects
@@ -203,7 +204,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "experience"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 Experience
@@ -213,7 +214,7 @@ export default function Home() {
                 className={`transition-colors ${
                   activeSection === "contact"
                     ? "text-accent"
-                    : "hover:text-neutral-400"
+                    : "hover:text-neutral-300"
                 }`}
               >
                 Contact
@@ -222,7 +223,7 @@ export default function Home() {
             <div className="relative">
               <button
                 onClick={() => setShowThemeDropdown(!showThemeDropdown)}
-                className="p-2 rounded-md hover:bg-neutral-800 transition-colors text-neutral-400 hover:text-accent"
+                className="p-2 rounded-md hover:bg-neutral-800 transition-colors hover:cursor-pointer text-neutral-400 hover:text-accent"
               >
                 <Command size={16} />
               </button>
@@ -243,12 +244,17 @@ export default function Home() {
             className="text-center pt-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
           >
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.4,
+                type: "spring",
+                stiffness: 120,
+              }}
             >
               <Image
                 src="/pfp.png"
@@ -296,7 +302,7 @@ export default function Home() {
                 className="flex items-center gap-1 px-3 py-1 bg-neutral-800 rounded hover:bg-accent hover:text-neutral-900 transition-colors"
               >
                 <Github size={14} />
-                <span>@Archit80</span>
+                <span>Github</span>
                 <ExternalLink size={10} className="opacity-50" />
               </a>
               <a
@@ -324,8 +330,8 @@ export default function Home() {
           {/* --- ABOUT ME --- */}
           <motion.section
             id="about"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -342,9 +348,9 @@ export default function Home() {
           {/* --- SKILLS --- */}
           <motion.section
             id="skills"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
             <h2 className="text-lg font-bold text-accent mb-3">Skills</h2>
@@ -459,8 +465,8 @@ export default function Home() {
           {/* --- PROJECTS --- */}
           <motion.section
             id="projects"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -485,7 +491,7 @@ export default function Home() {
                     stack={["Next.js", "Express", "MongoDB", "Google Auth"]}
                     liveUrl="#"
                     githubUrl="#"
-                    image="/linkslam-placeholder.svg"
+                    image="/link-slam.png"
                   />
                 </motion.div>
                 <motion.div
@@ -501,7 +507,7 @@ export default function Home() {
                     stack={["React", "FastAPI", "Gemini API"]}
                     liveUrl="#"
                     githubUrl="#"
-                    image="/memeaunty-placeholder.svg"
+                    image="/meme-aunty.png"
                   />
                 </motion.div>
               </div>
@@ -520,11 +526,11 @@ export default function Home() {
                   viewport={{ once: true }}
                 >
                   <div className="bg-neutral-800 rounded-2xl p-4 hover:shadow-md transition-shadow hover:border-neutral-600">
-                    <div className="w-full h-32 bg-neutral-700 rounded-lg mb-3 flex items-center justify-center">
+                    <div className="w-full h-40 bg-neutral-700 rounded-lg mb-3 flex items-center justify-center">
                       <Image
-                        width={60}
-                        height={60}
-                        src="/linkslam-placeholder.svg"
+                        width={800}
+                        height={400}
+                        src="/hashtech.png"
                         alt="HashTech 2025 Website preview"
                         className="w-full h-full object-cover rounded-lg"
                       />
@@ -538,7 +544,7 @@ export default function Home() {
                         high-impact visual experience rooted in cyberpunk
                         design. Focused on minimalist UI, smooth transitions,
                         and a bold design language to make the tech fest
-                        identity pop across screens.  
+                        identity pop across screens.
                       </p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         <span className="bg-neutral-700 text-neutral-200 text-xs px-2 py-1 rounded-sm">
@@ -548,12 +554,12 @@ export default function Home() {
                           Figma
                         </span>
                         <span className="bg-neutral-700 text-neutral-200 text-xs px-2 py-1 rounded-sm">
-                          Branding
+                          Redesign
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <a
-                          href="https://www.behance.net/archit80"
+                          href="https://www.behance.net/gallery/217205387/HashTech-2025-Cyberpunk-Theme-Website-Redesign"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 text-xs bg-accent text-black px-3 py-1 rounded hover:bg-opacity-80 transition-colors"
@@ -571,11 +577,11 @@ export default function Home() {
                   viewport={{ once: true }}
                 >
                   <div className="bg-neutral-800 rounded-2xl p-4 hover:shadow-md transition-shadow hover:border-neutral-600">
-                    <div className="w-full h-32 bg-neutral-700 rounded-lg mb-3 flex items-center justify-center">
+                    <div className="w-full h-40 bg-neutral-700 rounded-lg mb-3 flex items-center justify-center">
                       <Image
-                        width={60}
-                        height={60}
-                        src="/memeaunty-placeholder.svg"
+                        width={600}
+                        height={300}
+                        src="/alumnet.png"
                         alt="Alumnet preview"
                         className="w-full h-full object-cover rounded-lg"
                       />
@@ -593,18 +599,18 @@ export default function Home() {
                       </p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         <span className="bg-neutral-700 text-neutral-200 text-xs px-2 py-1 rounded-sm">
-                          UI/UX
+                          Product Design
                         </span>
                         <span className="bg-neutral-700 text-neutral-200 text-xs px-2 py-1 rounded-sm">
                           Figma
                         </span>
                         <span className="bg-neutral-700 text-neutral-200 text-xs px-2 py-1 rounded-sm">
-                          Branding
+                          Problem Solving
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <a
-                          href="https://www.behance.net/archit80"
+                          href="https://www.behance.net/gallery/209333177/Alumnet-UI-UX-Case-Study"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 text-xs bg-accent text-black px-3 py-1 rounded hover:bg-opacity-80 transition-colors"
@@ -622,8 +628,8 @@ export default function Home() {
           {/* --- EXPERIENCE --- */}
           <motion.section
             id="experience"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -859,9 +865,9 @@ export default function Home() {
         <motion.footer
           id="contact"
           className="text-center mt-12 py-4 border-t border-neutral-800"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
           viewport={{ once: true }}
         >
           <h2 className="text-lg font-bold text-accent mb-2">Get in Touch</h2>
@@ -869,10 +875,10 @@ export default function Home() {
             Feel free to reach out for collaborations or just a friendly chat!
           </p>
           <a
-            href="mailto:archit.taneja@example.com"
+            href="mailto:archittaneja80@gmail.com"
             className="text-sm font-medium hover:text-neutral-300 transition-colors text-neutral-200"
           >
-            archit.taneja@example.com
+            archittaneja80@gmail.com
           </a>
           <motion.div
             className="flex justify-center gap-4 mt-3"
@@ -885,7 +891,7 @@ export default function Home() {
               href="https://github.com/Archit80"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-300 transition-colors"
+              className="hover:text-accent transition-colors"
             >
               <Github size={18} />
             </a>
@@ -893,9 +899,17 @@ export default function Home() {
               href="https://linkedin.com/in/archit80"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-300 transition-colors"
+              className="hover:text-accent transition-colors"
             >
               <Linkedin size={18} />
+            </a>
+            <a
+              href="https://instagram.com/archit.mp4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              <Instagram size={18} />
             </a>
           </motion.div>
           <p className="text-xs text-neutral-500 mt-4">
