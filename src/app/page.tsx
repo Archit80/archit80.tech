@@ -151,7 +151,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-neutral-900 text-neutral-100 min-h-screen">
+    <div className="bg-neutral-900 text-neutral-100 min-h-screen px-2 sm:px-0">
       {/* --- STICKY HEADER --- */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
@@ -174,7 +174,7 @@ export default function Home() {
               </a>
               <a
                 href="#about"
-                className={`transition-colors ${
+                className={`transition-colors hidden sm:visible ${
                   activeSection === "about"
                     ? "text-accent"
                     : "hover:text-neutral-300"
