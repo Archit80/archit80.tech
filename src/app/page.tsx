@@ -16,6 +16,9 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
   const [showThemeDropdown, setShowThemeDropdown] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const skills = {
     languages: [
@@ -242,18 +245,23 @@ export default function Home() {
           <motion.section
             id="home"
             className="text-center pt-4"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 90 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 18,
+              delay: 0.1,
+            }}
           >
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
-                duration: 0.8,
-                delay: 0.4,
                 type: "spring",
-                stiffness: 120,
+                stiffness: 220,
+                damping: 16,
+                delay: 0.2,
               }}
             >
               <Image
@@ -267,33 +275,53 @@ export default function Home() {
             </motion.div>
             <motion.h1
               className="text-2xl font-bold mb-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+                delay: 0.3,
+              }}
             >
               Archit Taneja
             </motion.h1>
             <motion.p
               className="text-sm text-neutral-400 mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+                delay: 0.35,
+              }}
             >
               Software Engineering Student
             </motion.p>
             <motion.p
               className="text-base font-medium mb-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+                delay: 0.4,
+              }}
             >
               Full-Stack Developer · UI/UX Designer · Product Builder
             </motion.p>
             <motion.div
               className="flex justify-center items-center gap-2 text-sm"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+                delay: 0.45,
+              }}
             >
               <a
                 href="https://github.com/Archit80"
@@ -330,9 +358,9 @@ export default function Home() {
           {/* --- ABOUT ME --- */}
           <motion.section
             id="about"
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -150 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ type: "spring", stiffness: 100, damping: 12 }}
             viewport={{ once: true }}
           >
             <h2 className="text-lg font-bold text-accent mb-2">About Me</h2>
@@ -396,9 +424,9 @@ export default function Home() {
           {/* --- SKILLS --- */}
           <motion.section
             id="skills"
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 90 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ type: "spring", stiffness: 180, damping: 18 }}
             viewport={{ once: true }}
           >
             <h2 className="text-lg font-bold text-accent mb-3">Skills</h2>
@@ -412,9 +440,13 @@ export default function Home() {
                     <motion.div
                       key={skill.name}
                       className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.2,
+                        type: "spring",
+                      }}
                       viewport={{ once: true }}
                     >
                       <Image
@@ -438,9 +470,13 @@ export default function Home() {
                     <motion.div
                       key={skill.name}
                       className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.2,
+                        type: "spring",
+                      }}
                       viewport={{ once: true }}
                     >
                       <Image
@@ -464,9 +500,13 @@ export default function Home() {
                     <motion.div
                       key={skill.name}
                       className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.2,
+                        type: "spring",
+                      }}
                       viewport={{ once: true }}
                     >
                       <Image
@@ -513,9 +553,9 @@ export default function Home() {
           {/* --- PROJECTS --- */}
           <motion.section
             id="projects"
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -90 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ type: "spring", stiffness: 150, damping: 12 }}
             viewport={{ once: true }}
             className="border-b border-neutral-800 pb-8"
           >
@@ -530,7 +570,12 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2,
+                    stiffness: 150,
+                    damping: 12,
+                  }}
                   viewport={{ once: true }}
                 >
                   <ProjectCard
@@ -546,7 +591,12 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.4,
+                    stiffness: 150,
+                    damping: 12,
+                  }}
                   viewport={{ once: true }}
                 >
                   <ProjectCard
@@ -571,7 +621,13 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1,
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 12,
+                  }}
                   viewport={{ once: true }}
                 >
                   <div className="bg-neutral-800 rounded-2xl p-4 hover:shadow-md transition-shadow hover:border-neutral-600">
@@ -622,7 +678,13 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 12,
+                  }}
                   viewport={{ once: true }}
                 >
                   <div className="bg-neutral-800 rounded-2xl p-4 hover:shadow-md transition-shadow hover:border-neutral-600">
@@ -677,9 +739,9 @@ export default function Home() {
           {/* --- EXPERIENCE --- */}
           <motion.section
             id="experience"
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 90 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ type: "spring", stiffness: 150, damping: 12 }}
             viewport={{ once: true }}
           >
             <h2 className="text-lg font-bold text-accent mb-6">Experience</h2>
@@ -691,10 +753,16 @@ export default function Home() {
                 {/* CHALKSNBOARD - Software Developer Intern */}
                 <motion.div
                   className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  viewport={{ once: false }}
                 >
                   <div className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full">
                     <Image
@@ -748,10 +816,16 @@ export default function Home() {
                 {/* Brainchant Official - UI Design and Video Editing Intern */}
                 <motion.div
                   className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.15 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  viewport={{ once: false }}
                 >
                   <div className="relative z-10 w-12 h-12 flex items-center justify-center">
                     <Image
@@ -798,10 +872,16 @@ export default function Home() {
                 {/* SDC USICT, GGSIPU - User Experience Designer */}
                 <motion.div
                   className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  viewport={{ once: false }}
                 >
                   <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center">
                     <Image
@@ -849,10 +929,16 @@ export default function Home() {
                 {/* ACM Student Chapter USICT, GGSIPU - Web Developer and UX Designer */}
                 <motion.div
                   className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.25 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  viewport={{ once: false }}
                 >
                   <div className="relative z-10 w-12 h-12 flex items-center justify-center">
                     <Image
@@ -914,9 +1000,14 @@ export default function Home() {
         <motion.footer
           id="contact"
           className="text-center mt-12 py-4 border-t border-neutral-800"
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{
+            type: "spring",
+            stiffness: 160,
+            damping: 15,
+            delay: 0.5,
+          }}
           viewport={{ once: true }}
         >
           <h2 className="text-lg font-bold text-accent mb-2">Get in Touch</h2>
