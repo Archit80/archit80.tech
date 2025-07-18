@@ -583,8 +583,8 @@ export default function Home() {
                     emoji="🔗"
                     description="LinkSlam is a social link-sharing platform where users can save, like, and share links publicly or privately. It blends Reddit-style engagement with Linktree-style organization, featuring Google OAuth, tag-based search, and responsive UI built with Next.js and MongoDB."
                     stack={["Next.js", "Express", "MongoDB", "Google Auth"]}
-                    liveUrl="#"
-                    githubUrl="#"
+                    liveUrl="https://link-slam.vercel.app/"
+                    githubUrl="https://github.com/Archit80/LinkSlam"
                     image="/link-slam.png"
                   />
                 </motion.div>
@@ -604,8 +604,8 @@ export default function Home() {
                     emoji="👩🏼‍🦰"
                     description="Meme Aunty is an AI-powered meme generator with desi Gen Z vibes. Users upload photos and get savage, wholesome, or spicy captions using Gemini API. Rate-limited by browser fingerprinting, and built with React, FastAPI, Pillow, and Cloudinary."
                     stack={["React", "FastAPI", "Gemini API"]}
-                    liveUrl="#"
-                    githubUrl="#"
+                    liveUrl="https://meme-aunty.vercel.app/"
+                    githubUrl="https://github.com/Archit80/meme-gen-backend"
                     image="/meme-aunty.png"
                   />
                 </motion.div>
@@ -803,6 +803,9 @@ export default function Home() {
                       <li>
                         Integrated Razorpay Payments Gateway in the website
                         (with backend validation).
+                      </li>
+                      <li>
+                        
                       </li>
                     </ul>
                     {/* <div className="flex flex-wrap gap-1 mt-1"> */}
