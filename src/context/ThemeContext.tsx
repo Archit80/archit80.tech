@@ -12,15 +12,15 @@ export interface Theme {
 export const themes: Theme[] = [
   {
     name: 'default',
-    displayName: 'Default',
-    accent: '#e0e0e0',
-    description: 'Your current'
-  },
-  {
-    name: 'emerald',
     displayName: 'CyberPunk',
     accent: '#ffd500',
     description: 'Futuristic world'
+  },
+  {
+    name: 'emerald',
+    displayName: 'Monochrome',
+    accent: '#e0e0e0',
+    description: 'One color, multiple shades'
   },
   {
     name: 'fuchsia',
