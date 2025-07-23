@@ -1003,13 +1003,13 @@ export default function Home() {
         <motion.footer
           id="contact"
           className="text-center mt-12 py-4 border-t border-neutral-800"
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             type: "spring",
-            stiffness: 160,
+            stiffness: 140,
             damping: 15,
-            delay: 0.5,
+            delay: 0.3,
           }}
           viewport={{ once: true }}
         >
