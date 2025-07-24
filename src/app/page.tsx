@@ -373,7 +373,7 @@ export default function Home() {
                 <ExternalLink size={10} className="opacity-50" />
               </a>
               <a
-                href="https://drive.google.com/file/d/1ogsJMSPVddBfAlYAC4Q8o1TEsT7eLMQr/view"
+                href="https://drive.google.com/file/d/1Ai1srkdQwiDDwZaipuRTh9DttAoUZ_zD/view?usp=sharing"
                 target="_blank"
                 className="flex items-center gap-1 px-3 py-1 bg-accent text-neutral-900 rounded hover:bg-opacity-80 transition-colors"
               >
