@@ -1013,14 +1013,14 @@ export default function Home() {
                         </li>
                       </ul>
                     </ul>
-                    <div className="flex flex-wrap gap-1 mt-1">
+                    {/* <div className="flex flex-wrap gap-1 mt-1">
                       <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded">
                         Next.js
                       </span>
                       <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded">
                         UI/UX
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               </div>
