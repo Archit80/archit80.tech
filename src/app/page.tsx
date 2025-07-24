@@ -38,6 +38,10 @@ export default function Home() {
         name: "JavaScript",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
       },
+      {
+        name: "TypeScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      },
     ],
     frontend: [
       {
@@ -57,8 +61,20 @@ export default function Home() {
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
       },
       {
+        name: "zustand",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zustand/zustand-original.svg",
+      },
+      {
+        name: "axios",
+        logo: "https://icon.icepanel.io/Technology/svg/Azios.svg",
+      },
+      {
         name: "TailwindCSS",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      },
+      {
+        name: "shadcn",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAWRJREFUSEvd1U0uBEEUwPH/SAaZcQQbzmHFZmQEJxAHsCEsjLDA2PjYWFg7gUTiKz6WLuAwRCL0S2qSp3VVddV09UIvu6r7V6/qvXoNan4aNXv8G3AKmARegS+9iyki7ADXQDPDdoHDlKDGxNkBjlKBs8BdBowa4B5YAj5TgILdAOMuTMaqOMPSWBVgEDYsGIwNA0ZhsWA0FgPOmWwcM9n4CCzkU1+VwQrQBi4G70KytAhbBD4sDWAdODNjXeA2JELZRvlAR+bCNoBTtZB5QC6CUnWYP7MXQFZsi2wNOFfYCbBVdktDsc3szI5tmC/CGUCSYnBd+SLzYi5QsAegZVZbCWYDk2FF4DTwlotM6uzdkvq9rNH21Zg0W2m61idfh8vAldpGFybNVXfzA2DPhRVFOAJsAxPAviMyuQSe1M//dHYbHHLT6H9IuTybF6UxX1n4dmcV+AYufRP1eGyEIcavubWDP5OIVB0D19CTAAAAAElFTkSuQmCC",
       },
       {
         name: "Bootstrap",
@@ -98,6 +114,14 @@ export default function Home() {
         name: "PostgreSQL",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
       },
+      {
+        name: "socket.io",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
+      },
+      {
+        name: "Prisma",
+        logo: "/prisma-svgrepo-com.png",
+      },
     ],
     tools: [
       {
@@ -116,6 +140,11 @@ export default function Home() {
         name: "Docker",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
       },
+      {
+        name: "GitHub",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      },
+      
       // { name: "Cloudinary", logo: "https://res.cloudinary.com/cloudinary-marketing/image/upload/f_auto,q_auto/v1599098500/creative_source/Logo/Cloud%20Glyph/cloudinary_cloud_glyph_blue.svg" }
     ],
   };
@@ -439,7 +468,7 @@ export default function Home() {
                   {skills.languages.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
+                      className="flex items-center gap-2 px-2 py-1 rounded text-xs font-medium text-neutral-200 border border-white/12 bg-white/8 backdrop-blur-md shadow-sm"
                       initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{
@@ -469,7 +498,7 @@ export default function Home() {
                   {skills.frontend.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
+                      className="flex items-center gap-2 px-2 py-1 rounded text-xs font-medium text-neutral-200 border  border-white/12 bg-white/8  backdrop-blur-md shadow-sm"
                       initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{
@@ -499,7 +528,7 @@ export default function Home() {
                   {skills.backend.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
+                      className="flex items-center gap-2 px-2 py-1 rounded text-xs font-medium text-neutral-200 border  border-white/12 bg-white/8  backdrop-blur-md shadow-sm"
                       initial={{ opacity: 0, scale: 0.6 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{
@@ -529,7 +558,7 @@ export default function Home() {
                   {skills.tools.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded text-xs font-medium text-neutral-200"
+                      className="flex items-center gap-2 px-2 py-1 rounded text-xs font-medium text-neutral-200 border border-white/12 bg-white/8 backdrop-blur-md shadow-sm"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
