@@ -115,6 +115,14 @@ export default function Home() {
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
       },
       {
+        name: "Redis",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      },
+      {
+        name: "Supabase",
+        logo: "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
+      },
+      {
         name: "socket.io",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
       },
@@ -373,7 +381,7 @@ export default function Home() {
                 <ExternalLink size={10} className="opacity-50" />
               </a>
               <a
-                href="https://drive.google.com/file/d/1Ai1srkdQwiDDwZaipuRTh9DttAoUZ_zD/view?usp=sharing"
+                href="https://drive.google.com/file/d/1mFgrL9eKRJ5SkxhtNypYCKCjzmDMKuca/view?usp=sharing"
                 target="_blank"
                 className="flex items-center gap-1 px-3 py-1 bg-accent text-neutral-900 rounded hover:bg-opacity-80 transition-colors"
               >
@@ -636,6 +644,24 @@ export default function Home() {
                     liveUrl="https://meme-aunty.vercel.app/"
                     githubUrl="https://github.com/Archit80/meme-gen-backend"
                     image="/meme-aunty.png"
+                  />
+                </motion.div>
+                {/* AlgoWars Full-Width Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.6, type: "spring", stiffness: 160, damping: 16 }}
+                  viewport={{ once: true }}
+                  className="col-span-1 md:col-span-2"
+                >
+                  <ProjectCard
+                    title="AlgoWars"
+                    emoji="⚡"
+                    description={`AlgoWars — LeetCode, but snappier: fast 1v1 battles with real-time WebRTC feedback, focused solo practice sessions, a gamified progression system with XP, streaks and badges, a Gen Z-friendly playful UI built with shadcn/ui, and quick concept revision tools to brush up on DSA without long problem sessions.`}
+                    stack={["Next.js", "Tailwind CSS", "Zustand", "Socket.IO", "Node.js", "Express", "Prisma", "PostgreSQL", "Redis", "Supabase", "Google OAuth"]}
+                    liveUrl="https://algo-wars.vercel.app/"
+                    githubUrl="https://github.com/archit80/algowars"
+                    image="/algowars.png"
                   />
                 </motion.div>
               </div>
