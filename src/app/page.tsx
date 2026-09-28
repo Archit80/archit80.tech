@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import {
-  Github,
+  GithubIcon,
   Linkedin,
   FileText,
   Command,
@@ -366,7 +366,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 px-3 py-1 bg-neutral-800 rounded hover:bg-accent hover:text-neutral-900 transition-colors"
               >
-                <Github size={14} />
+                <GithubIcon size={14} />
                 <span>Github</span>
                 <ExternalLink size={10} className="opacity-50" />
               </a>
@@ -381,7 +381,7 @@ export default function Home() {
                 <ExternalLink size={10} className="opacity-50" />
               </a>
               <a
-                href="https://drive.google.com/file/d/1mFgrL9eKRJ5SkxhtNypYCKCjzmDMKuca/view?usp=sharing"
+                href="https://drive.google.com/file/d/1VD7WAtL83oJXJd8ld_sLQj38RXMq0jwA/view?usp=sharing"
                 target="_blank"
                 className="flex items-center gap-1 px-3 py-1 bg-accent text-neutral-900 rounded hover:bg-opacity-80 transition-colors"
               >
@@ -805,6 +805,70 @@ export default function Home() {
               <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-neutral-700"></div>
               {/* Timeline Items */}
               <div className="space-y-8">
+                {/* Venwiz Technologies - Software Engineering Intern */}
+                <motion.div
+                  className="relative flex items-start gap-6"
+                  initial={{ opacity: 0, x: -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  viewport={{ once: false }}
+                >
+                  <div className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full border-2 border-neutral-700 bg-white overflow-hidden">
+                    <Image
+                      src="/vz-logo.png"
+                      alt="Venwiz Logo"
+                      width={40}
+                      height={40}
+                      className="w-12 h-12 object-contain"
+                    />
+                  </div>
+                  <div className="flex-1 bg-neutral-800 p-6 rounded-xl">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-semibold text-base text-white">
+                        Software Engineering Intern
+                      </h3>
+                      <span className="text-sm text-neutral-400">
+                        June 2026 - Present
+                      </span>
+                    </div>
+                    <p className="text-md text-accent mb-2">
+                      <span className="font-bold">Venwiz Technologies</span> ·
+                      Internship · Bengaluru, Karnataka (Remote)
+                    </p>
+                    <ul className="list-disc pl-5 text-neutral-300 mb-2 text-sm">
+                      <li>
+                        Built an internal CMS dashboard from scratch (React,
+                        Redux, TypeScript, NestJS) with role-based access control
+                        and a safe rollback mechanism for project-tracking data,
+                        on a platform used by enterprise clients including L&amp;T,
+                        BPCL, CtrlS and Thermax.
+                      </li>
+                      <li>
+                        Shipped an end-to-end notes and tagging system (SendGrid
+                        automated email alerts) that became the platform’s
+                        primary tool for cross-team collaboration.
+                      </li>
+                      <li>
+                        Built a backend service (NestJS) integrating the Google
+                        Docs API to auto-generate formatted site-visit reports on
+                        demand, including the underlying data schema and migration
+                        to support it.
+                      </li>
+                      <li>
+                        Identified and fixed a security vulnerability in document
+                        access by replacing unsigned download links with signed,
+                        time-limited URLs (AWS CloudFront).
+                      </li>
+                    </ul>
+                  </div>
+                </motion.div>
+
                 {/* CHALKSNBOARD - Software Developer Intern */}
                 <motion.div
                   className="relative flex items-start gap-6"
@@ -860,7 +924,7 @@ export default function Home() {
                         (with backend validation).
                       </li>
                       <li>
-                        
+                        Collaborated with the design team to create a modern and user-friendly interface, enhancing the overall user experience.
                       </li>
                     </ul>
                     {/* <div className="flex flex-wrap gap-1 mt-1"> */}
@@ -984,71 +1048,6 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* ACM Student Chapter USICT, GGSIPU - Web Developer and UX Designer */}
-                <motion.div
-                  className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.3,
-                    type: "spring",
-                    stiffness: 180,
-                    damping: 18,
-                  }}
-                  viewport={{ once: false }}
-                >
-                  <div className="relative z-10 w-12 h-12 flex items-center justify-center">
-                    <Image
-                      src="/acm-logo.png"
-                      alt="ACM Student Chapter Logo"
-                      width={40}
-                      height={40}
-                      className="w-12 h-12 rounded-full border-2 border-accent-neutral object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 bg-neutral-800 p-6 rounded-xl">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold text-base text-white">
-                        Web Developer and UX Designer
-                      </h3>
-                      <span className="text-sm text-neutral-400">
-                        Oct 2024 - Present
-                      </span>
-                    </div>
-                    <p className="text-md text-accent mb-2">
-                      <span className="font-bold">
-                        ACM Student Chapter USICT, GGSIPU
-                      </span>
-                    </p>
-                    <ul className="list-disc pl-5 text-neutral-300 mb-2 text-sm">
-                      <li>
-                        Designed and developed websites for ACM Student Chapter,
-                        including:
-                      </li>
-                      <ul className="list-disc pl-8 text-xs text-neutral-300 mb-2">
-                        <li>
-                          <span className="font-semibold">Utkrisht:</span>{" "}
-                          Simplified professor-student communication and
-                          internship applications.
-                        </li>
-                        <li>
-                          <span className="font-semibold">HashTech:</span>{" "}
-                          Focused on aesthetics, attracting high engagement from
-                          students.
-                        </li>
-                      </ul>
-                    </ul>
-                    {/* <div className="flex flex-wrap gap-1 mt-1">
-                      <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded">
-                        Next.js
-                      </span>
-                      <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded">
-                        UI/UX
-                      </span>
-                    </div> */}
-                  </div>
-                </motion.div>
               </div>
             </div>
           </motion.section>
@@ -1091,7 +1090,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="hover:text-accent transition-colors"
             >
-              <Github size={18} />
+              <GithubIcon size={18} />
             </a>
             <a
               href="https://linkedin.com/in/archit80"
