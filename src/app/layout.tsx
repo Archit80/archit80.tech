@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "./providers";
-import { ThemePresetsProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
   title: "Archit Taneja | Developer Portfolio",
@@ -14,13 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="font-sans selection:bg-neutral-200 selection:text-neutral-900 ">
-        <ThemePresetsProvider>
-          <Providers attribute="class" defaultTheme="dark" enableSystem>
-            {children}
-          </Providers>
-        </ThemePresetsProvider>
+    <html lang="en">
+      <body>
+        {/* Layout structure - UI removed - see Content.md for portfolio content */}
+        {children}
       </body>
     </html>
   );
