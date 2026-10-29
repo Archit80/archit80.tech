@@ -1,6 +1,6 @@
 // Every doodle on the page, drawn with the seeded pen. Pure functions: (seed) => Drawing.
-import { FILL } from "@/lib/rough";
-import { createPen, type Drawing } from "./pen";
+import { FILL, type SketchPath } from "@/lib/rough";
+import { createPen, type Drawing, type Pen } from "./pen";
 
 type Draw = (seed: number) => Drawing;
 
@@ -298,36 +298,102 @@ export const sdcBadge: Draw = (seed) => {
 // ── Hero bits ────────────────────────────────────────────────
 
 /** Doodle self-portrait (120 × 120): messy hair, happy closed eyes, big grin. */
-export const boyFace: Draw = (seed) => {
-  const p = createPen(seed);
-  return {
-    paths: [
-      ...p.circle(60, 66, 80, { strokeWidth: 2.4 }),
-      ...p.curve(
-        [
-          [22, 56],
-          [26, 34],
-          [40, 30],
-          [46, 22],
-          [58, 28],
-          [66, 18],
-          [76, 28],
-          [90, 24],
-          [94, 40],
-          [100, 56],
-        ],
-        { strokeWidth: 2.4 },
-      ),
-      ...p.path("M30 46 Q36 34 46 40 Q52 30 62 38 Q70 30 78 40 Q88 34 92 48", { strokeWidth: 1.6 }),
-      ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.4 }),
-      ...p.path("M68 62 Q74 55 80 62", { strokeWidth: 2.4 }),
-      ...p.path("M42 76 Q60 98 78 76 Q60 84 42 76", { strokeWidth: 2.4 }),
-      // ears, drawn last so the rest of the face keeps its wobble
-      ...p.path("M21 61 Q12 61 13.5 67.5 Q15 74 22 73", { strokeWidth: 2.2 }),
-      ...p.path("M99 61 Q108 61 106.5 67.5 Q105 74 98 73", { strokeWidth: 2.2 }),
-    ],
-  };
+// The face's expressions. Head, hair and ears never change; only eyes and mouth do. Each part draws
+// from its own fixed range of seeds (a pen numbers its strokes seed, seed+1, …), so swapping the
+// expression never re-wobbles the head or ears, and "happy" stays exactly the original face.
+export type FaceMood = "happy" | "hopeful" | "cool" | "stressed" | "cheeky";
+
+const faceFeatures: Record<FaceMood, (p: Pen) => SketchPath[]> = {
+  happy: (p) => [
+    ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.4 }),
+    ...p.path("M68 62 Q74 55 80 62", { strokeWidth: 2.4 }),
+    ...p.path("M42 76 Q60 98 78 76 Q60 84 42 76", { strokeWidth: 2.4 }),
+  ],
+  hopeful: (p) => [
+    ...p.circle(46, 60, 14, { strokeWidth: 2.2 }),
+    ...p.circle(74, 60, 14, { strokeWidth: 2.2 }),
+    ...p.dot(47, 61.5, 7),
+    ...p.dot(75, 61.5, 7),
+    ...p.path("M51 81 Q60 88 69 81", { strokeWidth: 2.4 }),
+  ],
+  cool: (p) => [
+    ...p.polygon(
+      [
+        [35, 54],
+        [56, 54],
+        [54, 66],
+        [38, 66],
+      ],
+      { fill: FILL, fillStyle: "solid", strokeWidth: 2.2 },
+    ),
+    ...p.polygon(
+      [
+        [64, 54],
+        [85, 54],
+        [82, 66],
+        [66, 66],
+      ],
+      { fill: FILL, fillStyle: "solid", strokeWidth: 2.2 },
+    ),
+    ...p.line(56, 57, 64, 57, { strokeWidth: 2.2 }),
+    ...p.line(35, 56, 22, 53, { strokeWidth: 2 }),
+    ...p.line(85, 56, 98, 53, { strokeWidth: 2 }),
+    ...p.path("M46 82 Q62 92 76 77", { strokeWidth: 2.4 }),
+  ],
+  stressed: (p) => [
+    ...p.path("M41 55 L51 61 L41 67", { strokeWidth: 2.4 }),
+    ...p.path("M79 55 L69 61 L79 67", { strokeWidth: 2.4 }),
+    ...p.path("M44 85 Q49 79 54 85 Q59 91 64 85 Q69 79 74 85", { strokeWidth: 2.2 }),
+    ...p.path("M108 34 Q114 44 108 48 Q102 44 108 34 Z", { strokeWidth: 1.8 }),
+  ],
+  cheeky: (p) => [
+    ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.4 }),
+    ...p.circle(74, 60, 13, { strokeWidth: 2.2 }),
+    ...p.dot(74, 61, 6),
+    ...p.path("M44 78 Q60 92 76 78", { strokeWidth: 2.4 }),
+    ...p.path("M56 86 Q60 96 65 86", { strokeWidth: 2 }),
+  ],
 };
+
+const drawFace =
+  (mood: FaceMood): Draw =>
+  (seed) => {
+    const p = createPen(seed);
+    return {
+      paths: [
+        ...p.circle(60, 66, 80, { strokeWidth: 2.4 }),
+        ...p.curve(
+          [
+            [22, 56],
+            [26, 34],
+            [40, 30],
+            [46, 22],
+            [58, 28],
+            [66, 18],
+            [76, 28],
+            [90, 24],
+            [94, 40],
+            [100, 56],
+          ],
+          { strokeWidth: 2.4 },
+        ),
+        ...p.path("M30 46 Q36 34 46 40 Q52 30 62 38 Q70 30 78 40 Q88 34 92 48", { strokeWidth: 1.6 }),
+        ...faceFeatures[mood](createPen(seed + 3)),
+        // ears (seeds +6, +7: the same strokes they've always had)
+        ...createPen(seed + 6).path("M21 61 Q12 61 13.5 67.5 Q15 74 22 73", { strokeWidth: 2.2 }),
+        ...createPen(seed + 7).path("M99 61 Q108 61 106.5 67.5 Q105 74 98 73", { strokeWidth: 2.2 }),
+      ],
+    };
+  };
+
+/** The doodle self-portrait, one drawing per mood (stable references, so swapping is cheap). */
+export const faces = {
+  happy: drawFace("happy"),
+  hopeful: drawFace("hopeful"),
+  cool: drawFace("cool"),
+  stressed: drawFace("stressed"),
+  cheeky: drawFace("cheeky"),
+} satisfies Record<FaceMood, Draw>;
 
 /** Paperclip (28 × 64), clipped over the top edge of a card. */
 export const paperclip: Draw = (seed) => ({
