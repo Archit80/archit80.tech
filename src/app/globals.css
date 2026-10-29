@@ -1,48 +1,234 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* @theme {
-  --color-accent-neutral: #525252;
-  --color-accent-light: #737373;
-} */
+/* Class-based dark mode, driven by next-themes (<html class="dark">) */
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Theme Presets */
+/* ── Theme tokens ─────────────────────────────────────────────
+   Black & white ink on cream paper. Dark mode flips to chalk on slate. */
 :root {
-  --accent-color: #e0e0e0;
-}
- 
-/* Custom accent utilities */
-.text-accent {
-  color: var(--accent-color);
-  transition: color 0.3s ease;
-}
-
-.border-accent {
-  border-color: var(--accent-color);
-  transition: border-color 0.3s ease;
+  --paper: #f4f1e8;
+  --ink: #1d1d1b;
+  --surface: #fbfaf6;
+  --dot: rgb(29 29 27 / 0.2);
+  /* Paper grain: an inline SVG noise tile painted into the background (no overlay, no blending) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  color-scheme: light;
 }
 
-.bg-accent {
-  background-color: var(--accent-color);
-  transition: background-color 0.3s ease;
+.dark {
+  --paper: #161513;
+  --ink: #ecebe4;
+  --surface: #1f1e1b;
+  --dot: rgb(236 235 228 / 0.14);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  color-scheme: dark;
 }
 
-.hover\:bg-accent:hover {
-  background-color: var(--accent-color);
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: color-mix(in srgb, var(--ink) 72%, var(--paper));
+  --color-surface: var(--surface);
+  /* the one accent: electric lime, for highlights and status only (never as text on paper) */
+  --color-lime: #d4ff00;
+  /* second highlighter, used sparingly for the one big call to action */
+  --color-pink: #ff3ea5;
+  --color-charcoal: #1d1d1b;
+
+  --font-hand: var(--font-architects), "Comic Sans MS", cursive;
+  --font-display: var(--font-cabin-sketch), var(--font-architects), cursive;
+  --font-doodle: var(--font-rubik-doodle), var(--font-cabin-sketch), cursive;
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-signature: var(--font-mrs-saint), var(--font-architects), cursive;
+
+  --shadow-hard: 4px 4px 0 0 var(--ink);
+  --shadow-hard-sm: 2px 2px 0 0 var(--ink);
 }
 
-.hover\:text-accent:hover {
-  color: var(--accent-color);
-}
-
-.hover\:border-accent:hover {
-  border-color: var(--accent-color);
+/* Dot-grid notebook paper (plus grain), across the whole screen */
+body,
+.dot-paper {
+  background-color: var(--paper);
+  background-image: var(--grain), radial-gradient(var(--dot) 1.2px, transparent 1.6px);
+  background-size: auto, 24px 24px;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  background-color: #171717;
-  color: #f5f5f5;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #d4ff00;
+  color: #1d1d1b;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Thick hand-lettering: Architects Daughter traced with a pen stroke */
+.ink-heavy {
+  -webkit-text-stroke: 1.4px currentColor;
+}
+
+/* ── Cursor: a pencil on paper, chalk on the dark "blackboard" ──
+   Hotspots sit on the tip. Clickable things keep the pointing hand. */
+body {
+  cursor: url("/cursors/pencil.svg") 5 27, auto;
+}
+.dark body {
+  cursor: url("/cursors/chalk.svg") 7 25, auto;
+}
+a,
+button:not(:disabled),
+[role="button"],
+label[for],
+summary {
+  cursor: pointer;
+}
+
+/* Scrollable without a visible bar (the project modal). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Pencil retrace (sketch cards) ────────────────────────────
+   Each RoughBox draws a hidden second pass (pathLength=1).
+   Hovering a `.sketch` container (or a `.sketch-trigger` wrapping one) traces it in. */
+.rough-line {
+  transition: stroke-width 0.25s ease;
+}
+
+.rough-retrace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.sketch:hover .rough-line,
+.sketch:focus-within .rough-line,
+.sketch-trigger:hover .rough-line,
+.sketch-trigger:focus-visible .rough-line {
+  stroke-width: 2.8px;
+}
+
+.sketch:hover .rough-retrace,
+.sketch:focus-within .rough-retrace,
+.sketch-trigger:hover .rough-retrace,
+.sketch-trigger:focus-visible .rough-retrace {
+  stroke-dashoffset: 0;
+}
+
+/* ── Draw-on-scroll doodles ───────────────────────────────────
+   Strokes are drawn in order (per-path delay set inline) once the
+   doodle scrolls into view; hatching and labels fade in after. */
+.ink-draw .stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ink-draw .fill,
+.ink-draw text {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.5s;
+}
+
+.ink-draw.is-drawn .stroke {
+  stroke-dashoffset: 0;
+}
+
+.ink-draw.is-drawn .fill,
+.ink-draw.is-drawn text {
+  opacity: 1;
+}
+
+/* Momentary reset used to replay the draw-in (see Sketch `replay`) */
+.ink-draw.ink-reset .stroke {
+  stroke-dashoffset: 1;
+  transition: none;
+}
+
+.ink-draw.ink-reset .fill,
+.ink-draw.ink-reset text {
+  opacity: 0;
+  transition: none;
+}
+
+/* ── Doodles that react on hover ───────────────────────────── */
+@keyframes doodle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes doodle-wiggle {
+  0%,
+  100% {
+    transform: rotate(0) scaleX(1);
+  }
+  25% {
+    transform: rotate(-9deg) scaleX(1.08);
+  }
+  75% {
+    transform: rotate(9deg) scaleX(0.92);
+  }
+}
+
+.doodle-spin:hover {
+  animation: doodle-spin 1.1s linear infinite;
+}
+
+/* two quick wiggles per hover, then it settles */
+.doodle-wiggle:hover {
+  animation: doodle-wiggle 0.45s ease-in-out 2;
+}
+
+/* ── Banner marquee ─────────────────────────────────────────── */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+/* ── Smooth scroll (Lenis) ──────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rough-line,
+  .rough-retrace,
+  .ink-draw .stroke,
+  .ink-draw .fill,
+  .ink-draw text {
+    transition: none;
+  }
+
+  .marquee,
+  .doodle-spin:hover,
+  .doodle-wiggle:hover {
+    animation: none;
+  }
 }
