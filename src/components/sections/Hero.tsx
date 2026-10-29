@@ -14,7 +14,7 @@ const SOCIAL_ICONS: Record<string, IconType> = { GitHub: FiGithub, LinkedIn: FiL
 const FACE_CAPTION = "↑ hehe!";
 
 /**
- * Fills the first screen below the header (so the banner starts just under the fold) and sizes its
+ * Fills the first screen below the header (the whole screen from tablet up, where the nav is a floating note) (so the banner starts just under the fold) and sizes its
  * text against both viewport width and height (min(vw, vh) clamps), so the name, availability line
  * and links fill that space on big screens yet still fit on short laptops and phones.
  */
@@ -26,7 +26,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="top" className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center justify-center py-[clamp(0.75rem,4vh,3rem)] text-center">
+    <section id="top" className="relative flex min-h-[calc(100svh-5rem)] sm:min-h-svh sm:pt-20 flex-col items-center justify-center py-[clamp(0.75rem,4vh,3rem)] text-center">
       {/* On small screens the face sits above the name; on wide screens it hangs off the name's right. */}
       <TalkingFace size={68} className="relative mt-9 mb-1 md:hidden" />
 
@@ -85,11 +85,22 @@ export function Hero() {
                     target={s.href.startsWith("mailto:") ? undefined : "_blank"}
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="block transition-transform hover:-translate-y-0.5 hover:-rotate-6"
+                    className="group/icon relative block"
                   >
-                    <RoughBox shadow={3} className="grid size-10 place-items-center text-lg sm:size-12 sm:text-2xl">
+                    <RoughBox
+                      shadow={3}
+                      className="grid size-10 place-items-center text-lg transition-transform group-hover/icon:-translate-y-0.5 group-hover/icon:-rotate-6 sm:size-12 sm:text-2xl"
+                    >
                       <Icon aria-hidden />
                     </RoughBox>
+                    {/* name tooltip, popped up on hover / keyboard focus */}
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute bottom-full left-1/2 mb-2.5 -translate-x-1/2 translate-y-1 -rotate-2 rounded-md bg-ink px-2 py-0.5 font-hand text-sm whitespace-nowrap text-paper opacity-0 transition-[opacity,translate] duration-150 group-hover/icon:translate-y-0 group-hover/icon:opacity-100 group-focus-visible/icon:translate-y-0 group-focus-visible/icon:opacity-100"
+                    >
+                      {s.label}
+                      <span className="absolute top-full left-1/2 -translate-x-1/2 border-x-4 border-t-4 border-x-transparent border-t-ink" />
+                    </span>
                   </a>
                 </li>
               );

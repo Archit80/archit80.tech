@@ -294,7 +294,7 @@ export const experience: DoodleRole[] = [
 
 export const about = {
   photo: "/pfp.png",
-  bio: "I’m Archit, a 20-year-old engineering student from GGSIPU, Delhi. I’m passionate about combining clean design with functional code. I work across Full-Stack Development and UX UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. Currently exploring modern web tech, design systems, and everything in between.",
+  bio: "I’m Archit, a 21-year-old engineering student from GGSIPU, Delhi. I’m passionate about combining clean design with functional code. I work across Full-Stack Development and UX UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. Currently exploring modern web tech, backend systems, and everything in between.",
 };
 
 export const education = [

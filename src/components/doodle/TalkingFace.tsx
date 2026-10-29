@@ -6,6 +6,8 @@ import { boyFace, speechBubbleWide } from "./art";
 import { Sketch } from "./Sketch";
 
 const LINES = ["hi!", "hire me?", "ship it!", "brb, debugging", "coffee?"];
+// Pinned so the face keeps exactly this wobble, whatever changes around it on the page.
+const FACE_SEED = 1507518;
 
 /** The doodle self-portrait: poke it and it says something else (with a little squish). */
 export function TalkingFace({ caption, size = 150, className = "" }: { caption?: string; size?: number; className?: string }) {
@@ -43,7 +45,7 @@ export function TalkingFace({ caption, size = 150, className = "" }: { caption?:
           </span>
         </span>
 
-        <Sketch draw={boyFace} viewBox={[120, 120]} width={size} className="-rotate-6" />
+        <Sketch draw={boyFace} viewBox={[120, 120]} width={size} seed={FACE_SEED} className="-rotate-6" />
       </motion.button>
       {caption && <p className="mt-1 -rotate-3 text-center font-hand text-lg">{caption}</p>}
     </div>

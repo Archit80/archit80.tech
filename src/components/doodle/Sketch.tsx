@@ -16,17 +16,20 @@ interface SketchProps {
   style?: React.CSSProperties;
   /** Bump to ink the drawing in again from scratch (e.g. on hover). */
   replay?: number;
+  /** Fix the pencil wobble. By default it comes from the doodle's place in the tree, so it re-rolls when the layout around it changes. */
+  seed?: number;
 }
 
 // Keep long diagrams snappy: the whole drawing finishes in about this long.
 const DRAW_BUDGET_MS = 1500;
 
 /** A decorative rough.js doodle. Reserves its aspect ratio before hydration, so no layout shift. */
-export function Sketch({ draw, viewBox: [vw, vh], width, animate = true, className = "", style, replay = 0 }: SketchProps) {
+export function Sketch({ draw, viewBox: [vw, vh], width, animate = true, className = "", style, replay = 0, seed: fixedSeed }: SketchProps) {
   const ref = useRef<SVGSVGElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -8% 0px" });
   const isClient = useIsClient();
-  const seed = seedFrom(useId());
+  const autoSeed = seedFrom(useId());
+  const seed = fixedSeed ?? autoSeed;
   const drawing = useMemo(() => (isClient ? draw(seed) : null), [draw, seed, isClient]);
 
   // Replay: snap every stroke back to undrawn (no transition), force a style flush, then release

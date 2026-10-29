@@ -25,7 +25,7 @@ const ICONS: Record<string, (seed: number) => Drawing> = {
 const handle = (label: string, href: string) =>
   label === "Resume" ? "pdf, opens in drive" : `@${href.replace(/\/$/, "").split("/").pop()}`;
 
-/** One row on the contact note: a chunky doodled icon in its own sketchy box, tinted lime on hover. */
+/** One row on the contact note: a chunky doodled icon in its own sketchy box, tinted with the highlighter on hover. */
 function NoteLink({ label, href, detail }: { label: string; href: string; detail: string }) {
   const external = !href.startsWith("mailto:");
   return (
@@ -38,7 +38,7 @@ function NoteLink({ label, href, detail }: { label: string; href: string; detail
       <RoughBox
         shadow={3}
         seed={label.length * 7}
-        fillClassName="text-paper transition-colors duration-200 group-hover/link:text-lime"
+        fillClassName="text-paper transition-colors duration-200 group-hover/link:text-hl"
         className="grid size-14 shrink-0 place-items-center transition-transform duration-200 group-hover/link:-rotate-6 sm:size-16"
       >
         <Sketch draw={ICONS[label]} viewBox={[48, 48]} width={34} className="transition-colors duration-200 group-hover/link:text-charcoal" />
@@ -81,7 +81,7 @@ export function Contact() {
                 onFocus={() => setHelloHover(true)}
                 onBlur={() => setHelloHover(false)}
               >
-                <Marker trigger="controlled" active={helloHover} tone="pink">
+                <Marker trigger="controlled" active={helloHover} tone="alt">
                   say hello ✉
                 </Marker>
               </CircleLink>

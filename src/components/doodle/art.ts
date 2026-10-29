@@ -322,8 +322,9 @@ export const boyFace: Draw = (seed) => {
       ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.2 }),
       ...p.path("M68 62 Q74 55 80 62", { strokeWidth: 2.2 }),
       ...p.path("M42 76 Q60 98 78 76 Q60 84 42 76", { strokeWidth: 2.2 }),
-      ...p.path("M20 62 Q12 66 20 76", { strokeWidth: 2 }),
-      ...p.path("M100 62 Q108 66 100 76", { strokeWidth: 2 }),
+      // ears, drawn last so the rest of the face keeps its wobble
+      ...p.path("M21 61 Q12 61 13.5 67.5 Q15 74 22 73", { strokeWidth: 2.1 }),
+      ...p.path("M99 61 Q108 61 106.5 67.5 Q105 74 98 73", { strokeWidth: 2.1 }),
     ],
   };
 };

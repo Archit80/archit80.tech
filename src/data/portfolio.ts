@@ -42,7 +42,7 @@ export const hero = {
 
 export const about = {
   statement: "I make complex things feel obvious.",
-  body: "I'm Archit, a 20-year-old engineering student from GGSIPU, Delhi. I work across full-stack development and UX/UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. I care about the distance between an idea and the moment it becomes useful.",
+  body: "I'm Archit, a 21-year-old engineering student from GGSIPU, Delhi. I work across full-stack development and UX/UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. I care about the distance between an idea and the moment it becomes useful.",
   education: "B.Tech Information Technology · USICT, GGSIPU · 8.81 CGPA",
 };
 

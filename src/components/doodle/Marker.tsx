@@ -9,8 +9,8 @@ interface MarkerProps {
   /** hover: sweeps on pointer hover · view: once when scrolled into view · controlled: follows `active` */
   trigger?: "hover" | "view" | "controlled";
   active?: boolean;
-  /** Highlighter ink: lime everywhere, pink for the odd big call to action. */
-  tone?: "lime" | "pink";
+  /** Highlighter ink: the theme's highlight (lime on paper, pink in dark mode), or the other one for the odd big call to action. */
+  tone?: "main" | "alt";
   className?: string;
 }
 
@@ -19,10 +19,10 @@ const VIEW_W = 200;
 const VIEW_H = 40;
 
 /**
- * Lime highlighter swept across the text. Text under it turns charcoal so it stays readable in dark mode.
+ * Highlighter swept across the text (lime, or pink in dark mode). Text under it turns charcoal so it stays readable in dark mode.
  * With `trigger="hover"`, `active` keeps it on regardless of hover (e.g. the current nav link).
  */
-export function Marker({ children, trigger = "hover", active, tone = "lime", className = "" }: MarkerProps) {
+export function Marker({ children, trigger = "hover", active, tone = "main", className = "" }: MarkerProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [hovered, setHovered] = useState(false);
   const inView = useInView(ref, { once: true, margin: "0px 0px -12% 0px" });
@@ -57,7 +57,7 @@ export function Marker({ children, trigger = "hover", active, tone = "lime", cla
           aria-hidden
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           preserveAspectRatio="none"
-          className={`pointer-events-none absolute -inset-x-[0.2em] -top-[8%] -z-10 h-[116%] w-[calc(100%+0.4em)] overflow-visible opacity-90 ${tone === "pink" ? "text-pink" : "text-lime"}`}
+          className={`pointer-events-none absolute -inset-x-[0.2em] -top-[8%] -z-10 h-[116%] w-[calc(100%+0.4em)] overflow-visible opacity-90 ${tone === "alt" ? "text-hl-alt" : "text-hl"}`}
           initial={false}
           animate={{ scaleX: on ? 1 : 0 }}
           transition={{ duration: on ? 0.38 : 0.22, ease: [0.65, 0, 0.35, 1] }}

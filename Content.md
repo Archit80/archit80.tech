@@ -14,7 +14,7 @@
 
 ## About Section
 - **Statement**: I make complex things feel obvious.
-- **Bio**: I'm Archit, a 20-year-old engineering student from GGSIPU, Delhi. I work across full-stack development and UX/UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. I care about the distance between an idea and the moment it becomes useful.
+- **Bio**: I'm Archit, a 21-year-old engineering student from GGSIPU, Delhi. I work across full-stack development and UX/UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. I care about the distance between an idea and the moment it becomes useful.
 - **Education**: B.Tech Information Technology · USICT, GGSIPU · 8.81 CGPA
 
 ## Skills
