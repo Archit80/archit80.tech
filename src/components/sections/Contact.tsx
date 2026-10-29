@@ -25,6 +25,38 @@ const ICONS: Record<string, (seed: number) => Drawing> = {
 const handle = (label: string, href: string) =>
   label === "Resume" ? "pdf, opens in drive" : `@${href.replace(/\/$/, "").split("/").pop()}`;
 
+// Crayon box for the headline's last word: [paper, dark board]. Lime only on the dark board,
+// where it's readable; on cream paper it would wash out.
+const CRAYONS: [string, string][] = [
+  ["#ff3ea5", "#ff6cbc"],
+  ["#ff7a00", "#ffa040"],
+  ["#14a36b", "#d4ff00"],
+  ["#2f6bff", "#6aa0ff"],
+  ["#8b4dff", "#b58cff"],
+];
+
+/** The headline's last word in multicoloured, slightly crooked letters that hop in turn when the word is hovered. */
+function CrayonWord({ word }: { word: string }) {
+  return (
+    <span className="group/word inline-block whitespace-nowrap">
+      {[...word].map((ch, i) => {
+        const [light, dark] = CRAYONS[i % CRAYONS.length];
+        return (
+          <span
+            key={i}
+            style={{ "--c": light, "--cd": dark, transitionDelay: `${i * 40}ms` } as React.CSSProperties}
+            className={`inline-block text-[var(--c)] transition-[translate] duration-200 group-hover/word:-translate-y-1.5 dark:text-[var(--cd)] ${
+              i % 2 ? "rotate-3" : "-rotate-3"
+            }`}
+          >
+            {ch}
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 /** One row on the contact note: a chunky doodled icon in its own sketchy box, tinted with the highlighter on hover. */
 function NoteLink({ label, href, detail }: { label: string; href: string; detail: string }) {
   const external = !href.startsWith("mailto:");
@@ -38,10 +70,10 @@ function NoteLink({ label, href, detail }: { label: string; href: string; detail
       <RoughBox
         shadow={3}
         seed={label.length * 7}
-        fillClassName="text-paper transition-colors duration-200 group-hover/link:text-hl"
+        fillClassName="text-paper transition-colors duration-200 group-hover/link:text-lime dark:group-hover/link:text-pink"
         className="grid size-14 shrink-0 place-items-center transition-transform duration-200 group-hover/link:-rotate-6 sm:size-16"
       >
-        <Sketch draw={ICONS[label]} viewBox={[48, 48]} width={34} className="transition-colors duration-200 group-hover/link:text-charcoal" />
+        <Sketch draw={ICONS[label]} viewBox={[48, 48]} width={34} className="transition-colors duration-200 group-hover/link:text-charcoal dark:group-hover/link:text-ink" />
       </RoughBox>
       <span className="min-w-0 text-left">
         <span className="block font-hand text-xl tracking-wider uppercase">{label}</span>
@@ -53,6 +85,8 @@ function NoteLink({ label, href, detail }: { label: string; href: string; detail
 
 export function Contact() {
   const [helloHover, setHelloHover] = useState(false);
+  const headLead = contact.header.slice(0, contact.header.lastIndexOf(" "));
+  const headLast = contact.header.slice(contact.header.lastIndexOf(" ") + 1);
   const links = [
     { label: "Email", href: `mailto:${contact.email}`, detail: contact.email },
     ...contact.socials.map((s) => ({ ...s, detail: handle(s.label, s.href) })),
@@ -67,7 +101,7 @@ export function Contact() {
           <div className="text-center lg:text-left">
             <p className="font-doodle text-4xl leading-tight sm:text-6xl">
               <span aria-hidden>{"{ "}</span>
-              {contact.header}
+              {headLead} <CrayonWord word={headLast} />
               <span aria-hidden>{" }"}</span>
             </p>
             <p className="mt-6 max-w-xl text-lg text-ink-soft max-lg:mx-auto">{contact.message}</p>

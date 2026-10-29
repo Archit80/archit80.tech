@@ -302,7 +302,7 @@ export const boyFace: Draw = (seed) => {
   const p = createPen(seed);
   return {
     paths: [
-      ...p.circle(60, 66, 80, { strokeWidth: 2.2 }),
+      ...p.circle(60, 66, 80, { strokeWidth: 2.4 }),
       ...p.curve(
         [
           [22, 56],
@@ -316,15 +316,15 @@ export const boyFace: Draw = (seed) => {
           [94, 40],
           [100, 56],
         ],
-        { strokeWidth: 2.2 },
+        { strokeWidth: 2.4 },
       ),
       ...p.path("M30 46 Q36 34 46 40 Q52 30 62 38 Q70 30 78 40 Q88 34 92 48", { strokeWidth: 1.6 }),
-      ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.2 }),
-      ...p.path("M68 62 Q74 55 80 62", { strokeWidth: 2.2 }),
-      ...p.path("M42 76 Q60 98 78 76 Q60 84 42 76", { strokeWidth: 2.2 }),
+      ...p.path("M40 62 Q46 55 52 62", { strokeWidth: 2.4 }),
+      ...p.path("M68 62 Q74 55 80 62", { strokeWidth: 2.4 }),
+      ...p.path("M42 76 Q60 98 78 76 Q60 84 42 76", { strokeWidth: 2.4 }),
       // ears, drawn last so the rest of the face keeps its wobble
-      ...p.path("M21 61 Q12 61 13.5 67.5 Q15 74 22 73", { strokeWidth: 2.1 }),
-      ...p.path("M99 61 Q108 61 106.5 67.5 Q105 74 98 73", { strokeWidth: 2.1 }),
+      ...p.path("M21 61 Q12 61 13.5 67.5 Q15 74 22 73", { strokeWidth: 2.2 }),
+      ...p.path("M99 61 Q108 61 106.5 67.5 Q105 74 98 73", { strokeWidth: 2.2 }),
     ],
   };
 };

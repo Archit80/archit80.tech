@@ -12,9 +12,8 @@
   --dot: rgb(29 29 27 / 0.2);
   /* Paper grain: an inline SVG noise tile painted into the background (no overlay, no blending) */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
-  /* highlighter inks: lime on paper, hot pink on the dark board (and the odd call to action swaps) */
+  /* text-selection highlighter: lime on paper, hot pink on the dark board */
   --hl: #d4ff00;
-  --hl-alt: #ff3ea5;
   color-scheme: light;
 }
 
@@ -25,7 +24,6 @@
   --dot: rgb(236 235 228 / 0.14);
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
   --hl: #ff3ea5;
-  --hl-alt: #d4ff00;
   color-scheme: dark;
 }
 
@@ -38,8 +36,6 @@
   --color-lime: #d4ff00;
   /* second highlighter, used sparingly for the one big call to action */
   --color-pink: #ff3ea5;
-  --color-hl: var(--hl);
-  --color-hl-alt: var(--hl-alt);
   --color-charcoal: #1d1d1b;
 
   --font-hand: var(--font-architects), "Comic Sans MS", cursive;

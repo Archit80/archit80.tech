@@ -43,7 +43,8 @@ export const hero = {
   greeting: "hey there, i'm",
   name: "Archit Taneja",
   title: "Software Engineering Student",
-  tagline: "Full-Stack Developer · UI/UX Designer · Product Builder",
+  // Non-breaking spaces keep each phrase whole, so narrow screens only wrap between them.
+  tagline: "Full-Stack Developer · Ships Fast with AI Agents · Product Builder",
   status: "Available for Full-Time Roles",
   statusDetail: "Starting June 2027",
   statusNote: "Hire me before someone else does!",
@@ -107,6 +108,7 @@ export const skillGroups: { title: string; skills: DoodleSkill[] }[] = [
       { name: "Git", logo: "/skills/git.svg" },
       { name: "GitHub", logo: "/skills/github.svg", mono: true },
       { name: "VS Code", logo: "/skills/vscode.svg" },
+      { name: "Claude Code", logo: "/skills/claude.svg" },
     ],
   },
   {
@@ -118,10 +120,10 @@ export const skillGroups: { title: string; skills: DoodleSkill[] }[] = [
   },
 ];
 
-// The marquee repeats the skill groups (bar Languages), so the two never drift apart.
+// The marquee repeats the skill groups (bar Languages and Design), so the two never drift apart.
 export const banner = {
   tags: ["skills", "projects", "experience"],
-  words: skillGroups.filter((g) => g.title !== "Languages").map((g) => g.title.toUpperCase()),
+  words: skillGroups.filter((g) => !["Languages", "Design"].includes(g.title)).map((g) => g.title.toUpperCase()),
 };
 
 // Logos for stack items that aren't on the skills board.
@@ -294,7 +296,7 @@ export const experience: DoodleRole[] = [
 
 export const about = {
   photo: "/pfp.png",
-  bio: "I’m Archit, a 21-year-old engineering student from GGSIPU, Delhi. I’m passionate about combining clean design with functional code. I work across Full-Stack Development and UX UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. Currently exploring modern web tech, backend systems, and everything in between.",
+  bio: "I’m Archit, a 21-year-old engineering student from GGSIPU, Delhi, and a full-stack developer who ships. I build with AI coding agents like Claude Code every day, which lets me move fast without cutting corners: clean, typed, reviewed code that holds up in production, even in fast-paced teams. I still bring an eye for clean UI, but my focus is building and shipping real products. Currently exploring modern web tech, backend systems, and everything in between.",
 };
 
 export const education = [
@@ -317,7 +319,7 @@ export const education = [
 export const contact = {
   title: "Get in Touch",
   header: "LET’S BUILD SOMETHING AWESOME",
-  message: "Feel free to reach out for collaborations or just a friendly chat!",
+  message: "Need something built and shipped fast, without the quality slipping? Reach out, or just say hi!",
   email: "archittaneja80@gmail.com",
   socials: [
     { label: "GitHub", href: "https://github.com/Archit80" },

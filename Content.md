@@ -3,7 +3,7 @@
 ## Hero Section
 - **Name**: Archit Taneja
 - **Profile Image**: /pfp.png
-- **Role**: Full-Stack Developer · UI/UX Designer · Product Builder
+- **Role**: Full-Stack Developer · Ships Fast with AI Agents · Product Builder
 - **Intro**: I build digital products where systems thinking and visual clarity meet.
 - **Resume**: /Archit_Resume.pdf
 
@@ -14,7 +14,7 @@
 
 ## About Section
 - **Statement**: I make complex things feel obvious.
-- **Bio**: I'm Archit, a 21-year-old engineering student from GGSIPU, Delhi. I work across full-stack development and UX/UI design — crafting responsive apps, thoughtful interfaces, and smooth user flows. I care about the distance between an idea and the moment it becomes useful.
+- **Bio**: I'm Archit, a 21-year-old engineering student from GGSIPU, Delhi, and a full-stack developer who ships. I build with AI coding agents like Claude Code every day, which lets me move fast without cutting corners: clean, typed, reviewed code that holds up in production, even in fast-paced teams. I still bring an eye for clean UI, but my focus is building and shipping real products. Currently exploring modern web tech, backend systems, and everything in between.
 - **Education**: B.Tech Information Technology · USICT, GGSIPU · 8.81 CGPA
 
 ## Skills
@@ -169,7 +169,7 @@
 ## Contact Section
 - **Email**: archittaneja80@gmail.com
 - **Message**: Open to good problems, thoughtful teams, and work that rewards attention to detail.
-- **Contact Note**: Feel free to reach out for collaborations or just a friendly chat!
+- **Contact Note**: Need something built and shipped fast, without the quality slipping? Reach out, or just say hi!
 - **Copyright**: © [year] Archit Taneja. All rights reserved.
 
 ## Design System Colors & Theme

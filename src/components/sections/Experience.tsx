@@ -92,7 +92,7 @@ function RoleCard({ job }: { job: DoodleRole }) {
 export function Experience() {
   return (
     <section id="experience" aria-label="Experience" className="relative mt-20 scroll-mt-24 sm:mt-28">
-      <SectionHeader title="Experience" note="(where the sketches shipped)" />
+      <SectionHeader title="Experience" note="(where the code went live)" />
 
       <div className="relative">
         <RoughVRule className="absolute inset-y-0 left-[0.65rem]" />

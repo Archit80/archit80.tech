@@ -99,7 +99,7 @@ export function Skills() {
       <SectionHeader title="Skills & Tools" note={draggable ? "(the whole toolbox — go on, drag one)" : "(tap a logo for its name)"} />
 
       <RoughBox className="px-5 py-2 sm:px-10 sm:py-4">
-        <BracketsEgg className="absolute -top-7 right-6 hidden sm:block" />
+        <BracketsEgg className="absolute top-6 right-6 hidden sm:block" />
 
         <div className="divide-y-2 divide-dashed divide-ink/20">
           {skillGroups.map((group) => (
